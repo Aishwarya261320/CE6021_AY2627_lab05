@@ -6,26 +6,46 @@ it's written, so there is no benefit to writing full sentences or extra explanat
 
 **Q1.** In one phrase, what does `det_coords()` compute?
 
+A1.The (row, col) coordinates of the corners in the image (the Harris corner detector).
+
 **Q2.** Which library function did you use in Step 2 (`compute_gradients`) to convolve the image
 with the Sobel kernels?
 
+A2.scipy.signal.convolve2d
+
 **Q3.** In Step 3 (`gradient_products`), what are the three products computed from `Ix` and `Iy`?
+
+A3.Ix², Iy² and Ix·Iy
 
 **Q4.** What does Step 4 (`smooth_products`) use to weight each gradient product before summing
 it over a local window?
 
+A4. A Gaussian window (the kernel from Step 1, gaussian_kernel)
+
 **Q5.** State the formula used in Step 5 (`det_and_trace`) to compute the determinant from `A`,
 `B` and `C`.
+
+A5.Det(M) = AB − C² (the trace is A + B)
 
 **Q6.** State the formula used in Step 6 (`harris_response`) to compute the response `R` from the
 determinant and trace.
 
+A6. R = Det(M) − alpha · Trace(M)²
+
 **Q7.** What is the default value of `self.alpha` in the constructor?
 
+A7. 0.05
+
 **Q8.** What is the default value of `self.threshold_val` in the constructor?
+
+A8. 0.001
 
 **Q9.** Which `skimage` function does Step 8 (`find_peaks`) use to collapse a cluster of
 high-response pixels down to a single coordinate?
 
+A9. skimage.feature.peak_local_max
+
 **Q10.** In Step 9 (`det_coords`), what coordinate order — `(row, col)` or `(col, row)` — does the
 returned array use?
+
+A10.(row, col)
